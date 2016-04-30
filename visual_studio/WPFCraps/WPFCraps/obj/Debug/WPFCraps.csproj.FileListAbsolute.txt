@@ -1,0 +1,14 @@
+c:\users\patches\documents\visual studio 2013\Projects\WPFCraps\WPFCraps\bin\Debug\WPFCraps.exe.config
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.csprojResolveAssemblyReference.cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\MainWindow.baml
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\MainWindow.g.cs
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\App.g.cs
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps_MarkupCompile.cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.g.resources
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.Properties.Resources.resources
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.csproj.GenerateResource.Cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\bin\Debug\WPFCraps.exe
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\bin\Debug\WPFCraps.pdb
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.exe
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps.pdb
+C:\Users\Patches\documents\visual studio 2013\Projects\WPFCraps\WPFCraps\obj\Debug\WPFCraps_MarkupCompile.lref

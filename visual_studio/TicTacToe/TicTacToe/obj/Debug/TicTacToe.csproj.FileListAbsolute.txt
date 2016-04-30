@@ -1,0 +1,13 @@
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\MainWindow.baml
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\MainWindow.g.cs
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\App.g.cs
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe_MarkupCompile.cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.g.resources
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.Properties.Resources.resources
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csproj.GenerateResource.Cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.csprojResolveAssemblyReference.cache
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe.config
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.pdb
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.exe
+C:\Users\Patches\Documents\Visual Studio 2013\Projects\TicTacToe\TicTacToe\obj\Debug\TicTacToe.pdb

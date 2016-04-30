@@ -1,0 +1,122 @@
+﻿<Window x:Class="WPFCraps.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPFCraps"
+        Closing="window_close"
+        Title="MainWindow" Height="377" Width="555" MinWidth="555" MinHeight="379">
+
+    <Window.Resources>
+        <RoutedUICommand x:Key="Start" Text="Start"/>
+        <RoutedUICommand x:Key="Reset" Text="Reset"/>
+        <RoutedUICommand x:Key="Exit" Text="Exit"/>
+        <RoutedUICommand x:Key="About" Text="About"/>
+        <RoutedUICommand x:Key="Rules" Text="Rules"/>
+        <RoutedUICommand x:Key="Roll" Text="Roll"/>
+        <RoutedUICommand x:Key="Again" Text="Again"/>
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="{StaticResource Start}" Executed="menu_start_Click"/>
+        <CommandBinding Command="{StaticResource Reset}" Executed="menu_reset_Click"/>
+        <CommandBinding Command="{StaticResource Exit}" Executed="menu_exit_Click"/>
+        <CommandBinding Command="{StaticResource About}" Executed="menu_about_Click"/>
+        <CommandBinding Command="{StaticResource Rules}" Executed="menu_rules_Click"/>
+        <CommandBinding Command="{StaticResource Roll}" Executed="btn_roll_Click"/>
+        <CommandBinding Command="{StaticResource Again}" Executed="btn_playAgain_Click"/>
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Command="{StaticResource Start}" Key="S" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource Reset}" Key="R" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource Exit}" Key="E" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource About}" Key="A" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource Rules}" Key="U" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource Roll}" Key="O" Modifiers="Ctrl"/>
+        <KeyBinding Command="{StaticResource Again}" Key="P" Modifiers="Ctrl"/>
+    </Window.InputBindings>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Name="menu_game" Header="Game">
+                <MenuItem Name="menu_start" Header="_Start" InputGestureText="ctrl+S" Command="{StaticResource Start}"/>
+                <MenuItem Name="menu_reset" Header="_Reset" InputGestureText="ctrl+R" IsEnabled="False" Command="{StaticResource Reset}"/>
+                <MenuItem Name="menu_exit" Header="_Exit" InputGestureText="ctrl+E" Command="{StaticResource Exit}"/>
+            </MenuItem>
+            <MenuItem Name="menu_help" Header="_Help" >
+                <MenuItem Name="menu_about" Header="_About" InputGestureText="ctrl+A" Command="{StaticResource About}"/>
+                <MenuItem Name="menu_rules" Header="R_ules" InputGestureText="ctrl+U" Command="{StaticResource Rules}"/>
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="Top" Height="205">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="194"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="231"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="244"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Name="gb_curr_roll" Grid.Column="2" Header="Current Roll" HorizontalAlignment="Left" VerticalAlignment="Top" Height="194" Width="244">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="232"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="28,53,0,0" TextWrapping="Wrap" Text="Dice 1" VerticalAlignment="Top" Width="50" TextDecorations="Underline" IsReadOnlyCaretVisible="True" FontWeight="Bold" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="150,53,0,0" TextWrapping="Wrap" Text="Dice 2" VerticalAlignment="Top" Width="50" TextDecorations="Underline" IsReadOnlyCaretVisible="True" RenderTransformOrigin="0.58,-1" FontWeight="Bold" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_d1" HorizontalAlignment="Left" Height="27" Margin="28,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_d2" HorizontalAlignment="Left" Height="27" Margin="150,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="88,112,0,0" TextWrapping="Wrap" Text="Total" VerticalAlignment="Top" Width="50" TextDecorations="Underline" IsReadOnlyCaretVisible="True" RenderTransformOrigin="1.62,2.609" FontWeight="Bold" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_total" HorizontalAlignment="Left" Height="27" Margin="88,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="88,0,0,0" TextWrapping="Wrap" Text="Point" VerticalAlignment="Top" Width="50" TextDecorations="Underline" IsReadOnlyCaretVisible="True" FontWeight="Bold" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_point" HorizontalAlignment="Left" Height="27" Margin="88,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" IsTabStop="False" Focusable="False"/>
+
+                </Grid>
+            </GroupBox>
+            <GroupBox Name="gb_score" Header="Score" HorizontalAlignment="Left" Height="193" Margin="1,1,0,0" VerticalAlignment="Top" Width="230">
+                <Grid>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="3,17,0,0" TextWrapping="NoWrap"  Text="player wins:" VerticalAlignment="Top" Width="81" FontWeight="Bold" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_player_wins" HorizontalAlignment="Left" Height="23" Margin="89,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="3,56,0,0" TextWrapping="NoWrap"  Text="house wins:" VerticalAlignment="Top" Width="81" FontWeight="Bold" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_house_wins" HorizontalAlignment="Left" Height="23" Margin="89,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="71" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="10,93,0,0" TextWrapping="Wrap" Text="Player Bank" VerticalAlignment="Top" Width="74" TextDecorations="Underline" FontWeight="Bold" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_player_bank" HorizontalAlignment="Left" Height="20" Margin="3,122,0,0" TextWrapping="NoWrap"  VerticalAlignment="Top" Width="81" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="123,93,0,0" TextWrapping="Wrap" Text="Bet" VerticalAlignment="Top" Width="55" TextDecorations="Underline" FontWeight="Bold" IsReadOnlyCaretVisible="True" Focusable="False" IsTabStop="False"/>
+                    <TextBox IsReadOnly="True" x:Name="txt_bet" HorizontalAlignment="Left" Height="20" Margin="123,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73" Focusable="False" IsTabStop="False"/>
+                    <Button x:Name="btn_setMoney" Content="set money" HorizontalAlignment="Left" Height="24" Margin="10,147,0,0" VerticalAlignment="Top" Width="65" IsEnabled="False" Click="btn_setMoney_Click"/>
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom" Height="87">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="87"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="135"/>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="140"/>
+                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="96"/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btn_roll" Content="Roll" Grid.Column="2" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="120" Height="32" IsEnabled="False" Command="{StaticResource Roll}"/>
+            <Button Name="btn_playAgain" Content="Play Again" Grid.Column="4" HorizontalAlignment="Left" Margin="21,55,0,0" VerticalAlignment="Top" Width="75" Height="32" IsEnabled="False" Command="{StaticResource Again}"/>
+
+            <GroupBox Name="gb_bets" Header="bet amounts" Margin="0,-14,0,0">
+                <Grid>
+                    <Button x:Name="btn_bet_10" Content="$10" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="52" IsEnabled="False" Click="btn_bet_10_Click"/>
+                    <Button x:Name="btn_bet_100" Content="$100" HorizontalAlignment="Left" Height="29" Margin="67,10,0,0" VerticalAlignment="Top" Width="49" RenderTransformOrigin="1.667,0" IsEnabled="False" Click="btn_bet_100_Click"/>
+                    <Button x:Name="btn_bet_1000" Content="$1000" HorizontalAlignment="Left" Height="29" Margin="10,48,0,0" VerticalAlignment="Top" Width="52" IsEnabled="False" Click="btn_bet_1000_Click"/>
+                    <Button x:Name="btn_bet_10000" Content="$10,000" HorizontalAlignment="Left" Height="29" Margin="67,48,0,0" VerticalAlignment="Top" Width="49" IsEnabled="False" Click="btn_bet_10000_Click"/>
+                </Grid>
+            </GroupBox>
+            <TextBox IsReadOnly="True" x:Name="txt_outcome" Grid.Column="2" HorizontalAlignment="Center" Height="40" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Focusable="False" IsTabStop="False" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Foreground="#FFF90606"/>
+            <TextBox IsReadOnly="True" Grid.Column="4" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="roll= ctrl+o" VerticalAlignment="Top" Width="96" Focusable="False"/>
+            <TextBox IsReadOnly="True" Grid.Column="4" HorizontalAlignment="Left" Height="29" TextWrapping="Wrap" Text="play again= ctrl+p" VerticalAlignment="Top" Width="96" Focusable="False" Margin="0,21,0,0" FontSize="10"/>
+
+
+        </Grid>
+    </DockPanel>
+</Window>

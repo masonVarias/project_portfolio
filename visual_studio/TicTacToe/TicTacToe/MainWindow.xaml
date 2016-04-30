@@ -1,0 +1,69 @@
+﻿<Window x:Class="TicTacToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Name="MainMenu" IsMainMenu="true">
+            <MenuItem Name="file" Header="_File">
+                <MenuItem Name="mnu_newGame" Header="new game">
+                    <MenuItem Name="mnu_NP1" Header="single player" Click="mnu_NP1_Click"/>
+                    <MenuItem Name="mnu_NP2" Header="two player" Click="mnu_NP2_Click"/>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="help" Header="_Help">
+                <MenuItem Name="about" Header="about" Click="about_Click"/>    
+            </MenuItem>
+        </Menu>
+        <Grid DockPanel.Dock="left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="18"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="18"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="37*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="18"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="18"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Column="1" Fill="Black" HorizontalAlignment="Left" Height="210" Grid.RowSpan="5" Stroke="Black" VerticalAlignment="Top" Width="20" Grid.ColumnSpan="2"/>
+            <Rectangle Grid.Column="3" Fill="Black" HorizontalAlignment="Left" Height="210" Grid.RowSpan="5" Stroke="Black" VerticalAlignment="Top" Width="18"/>
+            <Rectangle Fill="Black" HorizontalAlignment="Left" Height="18" Stroke="Black" VerticalAlignment="Top" Width="216" Grid.ColumnSpan="5" Grid.Row="1" Margin="0,1,0,0" Grid.RowSpan="2"/>
+            <Rectangle Fill="Black" Stroke="Black" Width="216" Grid.ColumnSpan="5" Grid.Row="3" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Margin="0,3,0,0" Grid.RowSpan="2"/>
+            <Canvas Name="TL" Background="Transparent" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="60" MouseDown="TL_MouseDown" MouseEnter="TL_MouseEnter" MouseLeave="canvas_MouseLeave" Grid.RowSpan="2"/>
+            <Canvas Name="TC" Background="Transparent" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="60" Grid.Column="2" Margin="2,0,0,0" MouseEnter="TC_MouseEnter" MouseLeave="canvas_MouseLeave" MouseDown="TC_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Canvas Name="TR" Background="Transparent" Grid.Column="4" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="TR_MouseEnter" MouseDown="TR_MouseDown" Grid.RowSpan="2"/>
+            <Canvas Name="ML" Background="Transparent" HorizontalAlignment="Left" Height="60" Grid.Row="2" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="ML_MouseEnter" MouseDown="ML_MouseDown" Margin="0,2,0,0" Grid.RowSpan="2"/>
+            <Canvas Name="MC" Background="Transparent" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="2,2,0,0" Grid.Row="2" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="MC_MouseEnter" MouseDown="MC_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Canvas Name="MR" Background="Transparent" Grid.Column="4" HorizontalAlignment="Left" Height="60" Grid.Row="2" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="MR_MouseEnter" MouseDown="MR_MouseDown" Margin="0,2,0,0" Grid.RowSpan="2"/>
+            <Canvas Name="BL" Background="Transparent" HorizontalAlignment="Left" Height="60" Grid.Row="4" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="BL_MouseEnter" MouseDown="BL_MouseDown" Margin="0,4,0,0" Grid.RowSpan="2"/>
+            <Canvas Name="BC" Background="Transparent" Grid.Column="2" HorizontalAlignment="Left" Height="60" Margin="2,4,0,0" Grid.Row="4" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="BC_MouseEnter" MouseDown="BC_MouseDown" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <Canvas Name="BR" Background="Transparent" Grid.Column="4" HorizontalAlignment="Left" Height="60" Grid.Row="4" VerticalAlignment="Top" Width="60" MouseLeave="canvas_MouseLeave" MouseEnter="BR_MouseEnter" MouseDown="BR_MouseDown" Margin="0,4,0,0" Grid.RowSpan="2"/>
+            <RadioButton Name="P1Choice" Content="single player" HorizontalAlignment="Left" Margin="26,10,0,0" Grid.Row="5" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="102" IsChecked="true" GroupName="GameType"/>
+            <RadioButton Name="P2Choice" Content="two player" HorizontalAlignment="Left" Margin="26,26,0,0" Grid.Row="5" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="102" GroupName="GameType"/>
+            <Button Name="btn_newGame" Content="New game" Grid.Column="2" HorizontalAlignment="Left" Margin="55,21,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="3" Click="btn_newGame_Click"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110">
+                </RowDefinition>
+                <RowDefinition Height="32*"/>
+                <RowDefinition Height="29*">
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox Name="TXTturn" Grid.Column="1" HorizontalAlignment="Left" Height="36" TextWrapping="Wrap" Text="Players Turn" VerticalAlignment="Top" Width="150" TextAlignment="Center" FontWeight="Bold" TextDecorations="Underline" FontSize="24" IsReadOnly="True"/>
+            <Canvas Name="TurnImage" Background="Transparent" Grid.Column="1" HorizontalAlignment="Left" Height="60" Margin="42,41,0,0" VerticalAlignment="Top" Width="60"/>
+
+        </Grid>
+    </DockPanel>
+</Window>
